@@ -1,0 +1,48 @@
+es:
+  SilverShop\AbandonedCart\Model\CartRecovery:
+    SINGULARNAME: 'Recuperación de carrito'
+    PLURALNAME: 'Recuperaciones de carrito'
+    db_Email: 'Dirección de correo electrónico'
+    db_Status: 'Estado'
+    db_LastStepSent: 'Último paso enviado'
+    db_LastSentAt: 'Último envío el'
+    db_ClickedAt: 'Clicado el'
+    db_RecoveredAt: 'Recuperado el'
+    db_RecoveredValue: 'Valor recuperado'
+    db_Source: 'Origen'
+    has_one_Order: 'Pedido'
+    StatusActive: 'Activo'
+    StatusRecovered: 'Recuperado'
+    StatusUnsubscribed: 'Dado de baja'
+    StatusStopped: 'Detenido'
+    StatusCompleted: 'Completado'
+  SilverShop\AbandonedCart\Admin\AbandonedCartAdmin:
+    MENUTITLE: 'Carritos abandonados'
+  SilverShop\AbandonedCart\Control\CartRecoveryController:
+    Title: 'Recuperación de carrito'
+  SilverShop\AbandonedCart\Service\CartRecoveryService:
+    Subject1: 'Has dejado algo en tu carrito'
+    Subject2: "¿Aún lo estás pensando? Tu carrito te espera"
+    Subject3: 'Tu carrito te espera — completa tu pedido'
+  SilverShop\AbandonedCart\Job\ScanAbandonedCartsJob:
+    TITLE: 'Buscar carritos abandonados para recuperar'
+  SilverShop\AbandonedCart\Job\SendCartRecoveryJob:
+    TITLE: 'Enviar el paso de recuperación {step} para la recuperación de carrito n.º {id}'
+  SilverShop\AbandonedCart\Report\RecoveredCartsReport:
+    Title: 'Carritos recuperados'
+    Description: 'Carritos recuperados por los correos de recuperación, por periodo. Agrupar por año, mes o día.'
+  SilverShop\AbandonedCart:
+    EmailHeading: 'Has dejado algo en tu carrito'
+    EmailIntro: 'Tu carrito sigue aquí. Continúa donde lo dejaste: hemos guardado tus artículos.'
+    EmailButton: 'Volver a tu carrito'
+    ColProduct: 'Producto'
+    ColQty: 'Cant.'
+    ColPrice: 'Precio'
+    CartTotal: 'Total del carrito'
+    EmailUnsubIntro: 'Recibes este correo porque dejaste artículos en tu carrito en nuestra tienda.'
+    Unsubscribe: 'darse de baja'
+    PageUnsubscribed: 'Te has dado de baja'
+    PageUnsubscribedMsg: 'No recibirás más correos de recuperación de carrito.'
+    PageToCart: 'Ir a tu carrito'
+    PageInvalid: 'Este enlace no es válido'
+    PageInvalidMsg: 'Este enlace de recuperación o de baja ha caducado o es incorrecto.'

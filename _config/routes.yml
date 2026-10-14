@@ -1,0 +1,7 @@
+---
+Name: silvershop-abandoned-cart-routes
+After: '#rootroutes'
+---
+SilverStripe\Control\Director:
+  rules:
+    'cart-recovery': 'SilverShop\AbandonedCart\Control\CartRecoveryController'

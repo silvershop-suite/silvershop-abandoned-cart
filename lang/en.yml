@@ -1,0 +1,48 @@
+en:
+  SilverShop\AbandonedCart\Model\CartRecovery:
+    SINGULARNAME: 'Cart recovery'
+    PLURALNAME: 'Cart recoveries'
+    db_Email: 'Email address'
+    db_Status: 'Status'
+    db_LastStepSent: 'Last step sent'
+    db_LastSentAt: 'Last sent at'
+    db_ClickedAt: 'Clicked at'
+    db_RecoveredAt: 'Recovered at'
+    db_RecoveredValue: 'Recovered value'
+    db_Source: 'Source'
+    has_one_Order: 'Order'
+    StatusActive: 'Active'
+    StatusRecovered: 'Recovered'
+    StatusUnsubscribed: 'Unsubscribed'
+    StatusStopped: 'Stopped'
+    StatusCompleted: 'Completed'
+  SilverShop\AbandonedCart\Admin\AbandonedCartAdmin:
+    MENUTITLE: 'Abandoned carts'
+  SilverShop\AbandonedCart\Control\CartRecoveryController:
+    Title: 'Cart recovery'
+  SilverShop\AbandonedCart\Service\CartRecoveryService:
+    Subject1: 'You left something in your cart'
+    Subject2: 'Still thinking it over? Your cart is waiting'
+    Subject3: 'Your cart is waiting — complete your order'
+  SilverShop\AbandonedCart\Job\ScanAbandonedCartsJob:
+    TITLE: 'Scan for abandoned carts to recover'
+  SilverShop\AbandonedCart\Job\SendCartRecoveryJob:
+    TITLE: 'Send recovery step {step} for cart recovery #{id}'
+  SilverShop\AbandonedCart\Report\RecoveredCartsReport:
+    Title: 'Recovered Carts'
+    Description: 'Carts recovered by the abandoned-cart recovery emails, by period. Group by year, month, or day.'
+  SilverShop\AbandonedCart:
+    EmailHeading: 'You left something in your cart'
+    EmailIntro: "Your cart is still here. Pick up right where you left off — we've saved your items for you."
+    EmailButton: 'Return to your cart'
+    ColProduct: 'Product'
+    ColQty: 'Qty'
+    ColPrice: 'Price'
+    CartTotal: 'Cart total'
+    EmailUnsubIntro: 'You received this because you left items in your cart at our store.'
+    Unsubscribe: 'unsubscribe'
+    PageUnsubscribed: "You've been unsubscribed"
+    PageUnsubscribedMsg: "You won't receive any more cart-recovery emails."
+    PageToCart: 'Go to your cart'
+    PageInvalid: 'This link is not valid'
+    PageInvalidMsg: 'This recovery or unsubscribe link has expired or is incorrect.'

@@ -1,0 +1,48 @@
+nl:
+  SilverShop\AbandonedCart\Model\CartRecovery:
+    SINGULARNAME: 'Winkelwagenherstel'
+    PLURALNAME: 'Winkelwagenherstel'
+    db_Email: 'E-mailadres'
+    db_Status: 'Status'
+    db_LastStepSent: 'Laatste stap verzonden'
+    db_LastSentAt: 'Laatst verzonden op'
+    db_ClickedAt: 'Aangeklikt op'
+    db_RecoveredAt: 'Hersteld op'
+    db_RecoveredValue: 'Herstelde waarde'
+    db_Source: 'Bron'
+    has_one_Order: 'Bestelling'
+    StatusActive: 'Actief'
+    StatusRecovered: 'Hersteld'
+    StatusUnsubscribed: 'Afgemeld'
+    StatusStopped: 'Gestopt'
+    StatusCompleted: 'Voltooid'
+  SilverShop\AbandonedCart\Admin\AbandonedCartAdmin:
+    MENUTITLE: 'Verlaten winkelwagens'
+  SilverShop\AbandonedCart\Control\CartRecoveryController:
+    Title: 'Winkelwagenherstel'
+  SilverShop\AbandonedCart\Service\CartRecoveryService:
+    Subject1: 'Je hebt iets in je winkelwagen laten staan'
+    Subject2: 'Twijfel je nog? Je winkelwagen staat klaar'
+    Subject3: 'Je winkelwagen staat klaar — rond je bestelling af'
+  SilverShop\AbandonedCart\Job\ScanAbandonedCartsJob:
+    TITLE: 'Verlaten winkelwagens scannen om te herstellen'
+  SilverShop\AbandonedCart\Job\SendCartRecoveryJob:
+    TITLE: 'Herstelstap {step} verzenden voor winkelwagenherstel #{id}'
+  SilverShop\AbandonedCart\Report\RecoveredCartsReport:
+    Title: 'Herstelde winkelwagens'
+    Description: 'Winkelwagens die zijn hersteld door de herstelmails, per periode. Groepeer op jaar, maand of dag.'
+  SilverShop\AbandonedCart:
+    EmailHeading: 'Je hebt iets in je winkelwagen laten staan'
+    EmailIntro: 'Je winkelwagen staat nog voor je klaar. Ga verder waar je gebleven was — we hebben je artikelen bewaard.'
+    EmailButton: 'Terug naar je winkelwagen'
+    ColProduct: 'Product'
+    ColQty: 'Aantal'
+    ColPrice: 'Prijs'
+    CartTotal: 'Totaal winkelwagen'
+    EmailUnsubIntro: 'Je ontvangt dit omdat je artikelen in je winkelwagen hebt achtergelaten in onze winkel.'
+    Unsubscribe: 'afmelden'
+    PageUnsubscribed: 'Je bent afgemeld'
+    PageUnsubscribedMsg: 'Je ontvangt geen herstelmails meer.'
+    PageToCart: 'Ga naar je winkelwagen'
+    PageInvalid: 'Deze link is niet geldig'
+    PageInvalidMsg: 'Deze herstel- of afmeldlink is verlopen of onjuist.'

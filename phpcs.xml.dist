@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<ruleset name="silvershop-abandoned-cart">
+    <description>PHP_CodeSniffer configuration</description>
+
+    <file>src</file>
+    <file>tests</file>
+
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+
+    <arg name="extensions" value="php"/>
+    <arg name="colors"/>
+    <arg value="p"/>
+
+    <!-- Line-length (and other) warnings are reported but don't fail the build; real errors still do. -->
+    <config name="ignore_warnings_on_exit" value="1"/>
+
+    <rule ref="PSR12">
+        <!-- SilverStripe template/contract methods are PascalCase by convention (e.g. ResumeLink()). -->
+        <exclude name="PSR1.Methods.CamelCapsMethodName"/>
+    </rule>
+
+    <!-- SilverStripe test bootstrap: global Page/PageController stubs + require_once -->
+    <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
+        <exclude-pattern>tests/bootstrap.php</exclude-pattern>
+    </rule>
+    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+        <exclude-pattern>tests/bootstrap.php</exclude-pattern>
+    </rule>
+
+    <!-- TestOnly stand-in DataObjects live beside the test that uses them -->
+    <rule ref="PSR1.Classes.ClassDeclaration.MultipleClasses">
+        <exclude-pattern>tests/*</exclude-pattern>
+    </rule>
+</ruleset>

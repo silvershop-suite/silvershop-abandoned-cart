@@ -1,0 +1,72 @@
+---
+Name: silvershop-abandoned-cart
+After:
+  - '#silvershop'
+---
+# Attribution hook: match a placed order back to its CartRecovery row (onPlaceOrder) and mark it Recovered.
+SilverShop\Model\Order:
+  extensions:
+    - SilverShop\AbandonedCart\Extension\OrderRecoveryExtension
+
+SilverShop\AbandonedCart\Service\CartRecoveryService:
+  # The recovery sequence: minutes after abandonment at which each step is sent. Default 1 h / 24 h / 72 h —
+  # the industry table-stakes cadence. The first value also defines when a cart first becomes "abandoned".
+  steps:
+    - 60
+    - 1440
+    - 4320
+  # Lawful basis for sending (GDPR / ePrivacy). Verify with legal/DPO for your jurisdiction.
+  #   legitimate_interest (default): send to checkout-email providers + members, always one-click unsubscribe,
+  #     honour our own unsubscribe list (a defensible LI / soft-opt-in posture).
+  #   require_consent: only send when the address has an explicit NewsletterConsent opt-in (hard opt-in).
+  consent_mode: 'legitimate_interest'
+  # Don't chase stale husks: ignore carts whose last edit is older than this many minutes (14 days).
+  max_age_mins: 20160
+  # Safety cap on how many recovery emails a single CLI --run pass sends.
+  max_per_run: 100
+  # Delete terminal (Recovered/Unsubscribed/Stopped/Completed) rows this many days after they end. Their token
+  # is nulled the moment they go terminal, so the resume link dies immediately regardless of this window.
+  retention_days: 30
+  # Delivery channel. v1 ships 'native' (the shop sends via the shared email shell). 'esp'/'both' are the
+  # v2 ESP-export seam (push events to silvershop/newsletter's provider registry) — reserved, native-only for now.
+  delivery: 'native'
+  # Attribute a placement even when no resume click was recorded (covers typed-not-clicked returns). Off by
+  # default to avoid over-claiming — v1 attribution requires a recorded ClickedAt.
+  attribute_on_place_without_click: false
+  # Sender address for the recovery emails (falls back to store-profile / SiteConfig / admin email when empty).
+  from_email: ''
+
+SilverShop\AbandonedCart\Model\CartRecovery:
+  # Mask the recipient address (m•••@example.com) on the CMS admin + report surfaces. The real address is
+  # always used internally for sending; this is display-only privacy hardening.
+  mask_displayed_email: true
+
+---
+Name: silvershop-abandoned-cart-notification-log
+Only:
+  moduleexists: 'silvershop/notification-log'
+After:
+  - '#silvershop'
+---
+# Recovery mail is marketing-adjacent, so file the `cart.*` notification-key family under Marketing (split
+# retention / lawful-basis family) instead of the Transactional default.
+SilverShop\NotificationLog\Service\NotificationCapture:
+  category_map:
+    cart: 'Marketing'
+  label_map:
+    'cart.recovery': 'Abandoned-cart recovery'
+
+---
+Name: silvershop-abandoned-cart-queuedjobs
+After:
+  - '#queuedjobs'
+---
+# Each per-cart send is retried a few times with a growing delay for transient mail/DB errors.
+SilverShop\AbandonedCart\Job\SendCartRecoveryJob:
+  retry_max_attempts: 3
+  retry_initial_delay: 60
+  retry_falloff_multiplier: 2
+
+# The recurring scan re-queues itself this many minutes after each run.
+SilverShop\AbandonedCart\Job\ScanAbandonedCartsJob:
+  scan_interval_mins: 30

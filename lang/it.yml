@@ -1,0 +1,48 @@
+it:
+  SilverShop\AbandonedCart\Model\CartRecovery:
+    SINGULARNAME: 'Recupero carrello'
+    PLURALNAME: 'Recuperi carrello'
+    db_Email: 'Indirizzo email'
+    db_Status: 'Stato'
+    db_LastStepSent: 'Ultimo passaggio inviato'
+    db_LastSentAt: 'Ultimo invio il'
+    db_ClickedAt: 'Cliccato il'
+    db_RecoveredAt: 'Recuperato il'
+    db_RecoveredValue: 'Valore recuperato'
+    db_Source: 'Origine'
+    has_one_Order: 'Ordine'
+    StatusActive: 'Attivo'
+    StatusRecovered: 'Recuperato'
+    StatusUnsubscribed: 'Annullato'
+    StatusStopped: 'Interrotto'
+    StatusCompleted: 'Completato'
+  SilverShop\AbandonedCart\Admin\AbandonedCartAdmin:
+    MENUTITLE: 'Carrelli abbandonati'
+  SilverShop\AbandonedCart\Control\CartRecoveryController:
+    Title: 'Recupero carrello'
+  SilverShop\AbandonedCart\Service\CartRecoveryService:
+    Subject1: 'Hai lasciato qualcosa nel carrello'
+    Subject2: 'Ci stai ancora pensando? Il tuo carrello ti aspetta'
+    Subject3: 'Il tuo carrello ti aspetta — completa il tuo ordine'
+  SilverShop\AbandonedCart\Job\ScanAbandonedCartsJob:
+    TITLE: 'Cerca i carrelli abbandonati da recuperare'
+  SilverShop\AbandonedCart\Job\SendCartRecoveryJob:
+    TITLE: 'Invia il passaggio di recupero {step} per il recupero carrello #{id}'
+  SilverShop\AbandonedCart\Report\RecoveredCartsReport:
+    Title: 'Carrelli recuperati'
+    Description: 'Carrelli recuperati dalle email di recupero, per periodo. Raggruppa per anno, mese o giorno.'
+  SilverShop\AbandonedCart:
+    EmailHeading: 'Hai lasciato qualcosa nel carrello'
+    EmailIntro: 'Il tuo carrello è ancora qui. Riprendi da dove avevi lasciato: abbiamo conservato i tuoi articoli.'
+    EmailButton: 'Torna al carrello'
+    ColProduct: 'Prodotto'
+    ColQty: 'Qtà'
+    ColPrice: 'Prezzo'
+    CartTotal: 'Totale carrello'
+    EmailUnsubIntro: 'Ricevi questa email perché hai lasciato articoli nel carrello del nostro negozio.'
+    Unsubscribe: 'annulla iscrizione'
+    PageUnsubscribed: 'Iscrizione annullata'
+    PageUnsubscribedMsg: 'Non riceverai più email di recupero carrello.'
+    PageToCart: 'Vai al carrello'
+    PageInvalid: 'Questo link non è valido'
+    PageInvalidMsg: 'Questo link di recupero o annullamento è scaduto o non è corretto.'

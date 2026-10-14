@@ -1,0 +1,48 @@
+fr:
+  SilverShop\AbandonedCart\Model\CartRecovery:
+    SINGULARNAME: 'Récupération de panier'
+    PLURALNAME: 'Récupérations de panier'
+    db_Email: 'Adresse e-mail'
+    db_Status: 'Statut'
+    db_LastStepSent: 'Dernière étape envoyée'
+    db_LastSentAt: 'Dernier envoi le'
+    db_ClickedAt: 'Cliqué le'
+    db_RecoveredAt: 'Récupéré le'
+    db_RecoveredValue: 'Valeur récupérée'
+    db_Source: 'Source'
+    has_one_Order: 'Commande'
+    StatusActive: 'Actif'
+    StatusRecovered: 'Récupéré'
+    StatusUnsubscribed: 'Désabonné'
+    StatusStopped: 'Arrêté'
+    StatusCompleted: 'Terminé'
+  SilverShop\AbandonedCart\Admin\AbandonedCartAdmin:
+    MENUTITLE: 'Paniers abandonnés'
+  SilverShop\AbandonedCart\Control\CartRecoveryController:
+    Title: 'Récupération de panier'
+  SilverShop\AbandonedCart\Service\CartRecoveryService:
+    Subject1: 'Vous avez laissé des articles dans votre panier'
+    Subject2: "Vous hésitez encore ? Votre panier vous attend"
+    Subject3: 'Votre panier vous attend — finalisez votre commande'
+  SilverShop\AbandonedCart\Job\ScanAbandonedCartsJob:
+    TITLE: 'Rechercher les paniers abandonnés à récupérer'
+  SilverShop\AbandonedCart\Job\SendCartRecoveryJob:
+    TITLE: "Envoyer l'étape de récupération {step} pour la récupération de panier #{id}"
+  SilverShop\AbandonedCart\Report\RecoveredCartsReport:
+    Title: 'Paniers récupérés'
+    Description: 'Paniers récupérés par les e-mails de récupération, par période. Regrouper par année, mois ou jour.'
+  SilverShop\AbandonedCart:
+    EmailHeading: 'Vous avez laissé des articles dans votre panier'
+    EmailIntro: "Votre panier est toujours là. Reprenez là où vous vous êtes arrêté — nous avons conservé vos articles."
+    EmailButton: 'Revenir à votre panier'
+    ColProduct: 'Produit'
+    ColQty: 'Qté'
+    ColPrice: 'Prix'
+    CartTotal: 'Total du panier'
+    EmailUnsubIntro: 'Vous recevez cet e-mail car vous avez laissé des articles dans votre panier sur notre boutique.'
+    Unsubscribe: 'se désabonner'
+    PageUnsubscribed: 'Vous êtes désabonné'
+    PageUnsubscribedMsg: "Vous ne recevrez plus d'e-mails de récupération de panier."
+    PageToCart: 'Aller à votre panier'
+    PageInvalid: "Ce lien n'est pas valide"
+    PageInvalidMsg: 'Ce lien de récupération ou de désabonnement a expiré ou est incorrect.'

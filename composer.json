@@ -1,0 +1,72 @@
+{
+    "name": "silvershop/abandoned-cart",
+    "description": "Abandoned-cart recovery for SilverShop: detect carts left behind, send a timed recovery-email sequence, and restore the cart from a tokenised link — with a self-contained snapshot so recovery survives cart cleanup.",
+    "type": "silverstripe-vendormodule",
+    "keywords": [
+        "silverstripe",
+        "silvershop",
+        "ecommerce",
+        "cart",
+        "abandoned-cart",
+        "recovery",
+        "notifications"
+    ],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "SilverShop Contributors",
+            "homepage": "https://github.com/silvershop/silvershop-abandoned-cart/graphs/contributors"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "silverstripe/framework": "^6.0",
+        "silvershop/core": "^6.2",
+        "symbiote/silverstripe-queuedjobs": "^6.0"
+    },
+    "require-dev": {
+        "cambis/silverstan": "^2.1",
+        "silverstripe/recipe-testing": "^4",
+        "silverstripe/sqlite3": "^4",
+        "squizlabs/php_codesniffer": "^3.0"
+    },
+    "suggest": {
+        "silvershop/newsletter": "Gates recovery mail on the canonical NewsletterConsent opt-in (require_consent mode) and is the seam for the v2 ESP-export delivery.",
+        "silvershop/notification-log": "Captures each recovery email as an auditable, GDPR-categorised SentNotification row and provides the data-erasure seam.",
+        "silvershop/store-profile": "Shared shop identity used as the sender name/address for the recovery emails.",
+        "silvershop/order-confirmation": "Shares the tokenised-order-access idiom; its GuestToken gives placed-order links from the recovery landing.",
+        "silvershop/order-admin": "Richer CMS order surfaces alongside the recovery admin.",
+        "silvershop/discounts": "v2 incentive coupons injected into the later recovery emails."
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "stan": "vendor/bin/phpstan analyse --configuration=phpstan.neon --memory-limit=-1",
+        "lint": "vendor/bin/phpcs",
+        "lint:fix": "vendor/bin/phpcbf"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "silverstripe/recipe-plugin": true,
+            "silverstripe/vendor-plugin": true,
+            "php-http/discovery": false
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "SilverShop\\AbandonedCart\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SilverShop\\AbandonedCart\\Tests\\": "tests/php/"
+        }
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}

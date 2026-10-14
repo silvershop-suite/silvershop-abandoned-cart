@@ -1,0 +1,48 @@
+de:
+  SilverShop\AbandonedCart\Model\CartRecovery:
+    SINGULARNAME: 'Warenkorb-Wiederherstellung'
+    PLURALNAME: 'Warenkorb-Wiederherstellungen'
+    db_Email: 'E-Mail-Adresse'
+    db_Status: 'Status'
+    db_LastStepSent: 'Letzter gesendeter Schritt'
+    db_LastSentAt: 'Zuletzt gesendet am'
+    db_ClickedAt: 'Angeklickt am'
+    db_RecoveredAt: 'Wiederhergestellt am'
+    db_RecoveredValue: 'Wiederhergestellter Wert'
+    db_Source: 'Quelle'
+    has_one_Order: 'Bestellung'
+    StatusActive: 'Aktiv'
+    StatusRecovered: 'Wiederhergestellt'
+    StatusUnsubscribed: 'Abgemeldet'
+    StatusStopped: 'Gestoppt'
+    StatusCompleted: 'Abgeschlossen'
+  SilverShop\AbandonedCart\Admin\AbandonedCartAdmin:
+    MENUTITLE: 'Verlassene Warenkörbe'
+  SilverShop\AbandonedCart\Control\CartRecoveryController:
+    Title: 'Warenkorb-Wiederherstellung'
+  SilverShop\AbandonedCart\Service\CartRecoveryService:
+    Subject1: 'Sie haben etwas in Ihrem Warenkorb gelassen'
+    Subject2: 'Noch am Überlegen? Ihr Warenkorb wartet'
+    Subject3: 'Ihr Warenkorb wartet — schließen Sie Ihre Bestellung ab'
+  SilverShop\AbandonedCart\Job\ScanAbandonedCartsJob:
+    TITLE: 'Verlassene Warenkörbe zur Wiederherstellung suchen'
+  SilverShop\AbandonedCart\Job\SendCartRecoveryJob:
+    TITLE: 'Wiederherstellungsschritt {step} für Warenkorb-Wiederherstellung #{id} senden'
+  SilverShop\AbandonedCart\Report\RecoveredCartsReport:
+    Title: 'Wiederhergestellte Warenkörbe'
+    Description: 'Durch die Wiederherstellungs-E-Mails wiederhergestellte Warenkörbe, nach Zeitraum. Gruppierung nach Jahr, Monat oder Tag.'
+  SilverShop\AbandonedCart:
+    EmailHeading: 'Sie haben etwas in Ihrem Warenkorb gelassen'
+    EmailIntro: 'Ihr Warenkorb ist noch da. Machen Sie dort weiter, wo Sie aufgehört haben — wir haben Ihre Artikel gespeichert.'
+    EmailButton: 'Zurück zum Warenkorb'
+    ColProduct: 'Produkt'
+    ColQty: 'Menge'
+    ColPrice: 'Preis'
+    CartTotal: 'Warenkorbsumme'
+    EmailUnsubIntro: 'Sie erhalten diese E-Mail, weil Sie Artikel in Ihrem Warenkorb in unserem Shop gelassen haben.'
+    Unsubscribe: 'abmelden'
+    PageUnsubscribed: 'Sie wurden abgemeldet'
+    PageUnsubscribedMsg: 'Sie erhalten keine Warenkorb-Wiederherstellungs-E-Mails mehr.'
+    PageToCart: 'Zum Warenkorb'
+    PageInvalid: 'Dieser Link ist ungültig'
+    PageInvalidMsg: 'Dieser Wiederherstellungs- oder Abmeldelink ist abgelaufen oder falsch.'
