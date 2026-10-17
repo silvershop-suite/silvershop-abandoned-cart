@@ -22,5 +22,5 @@ class AbandonedCartAdmin extends ModelAdmin
 
     private static string $menu_title = 'Abandoned carts';
 
-    private static string $menu_icon_class = 'font-icon-trolley';
+    private static string $menu_icon_class = 'font-icon-cart';
 }
