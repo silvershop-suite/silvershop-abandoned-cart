@@ -130,3 +130,7 @@ extension hook so carts with an active recovery are spared; product thumbnails i
 ## License
 
 BSD-3-Clause.
+
+## Credits
+
+Built and maintained by **Remy Vaartjes** (<remy@xd.nl>) — part of the **SilverShop-Suite**.
