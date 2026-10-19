@@ -1,11 +1,11 @@
-# silvershop/abandoned-cart
+# silvershop-suite/abandoned-cart
 
 Abandoned-cart recovery for [SilverShop](https://github.com/silvershop/silvershop-core). It detects carts left
 behind, sends a short, timed recovery-email sequence, and restores the cart from a one-click tokenised link — with a
 **self-contained snapshot** so recovery works even after a cart is cleaned up.
 
 Native and out-of-the-box: no ESP account required. Every scheduled send is visible and auditable in
-`QueuedJobAdmin`, every email can be logged by `silvershop/notification-log`, and recovered revenue is reported in the
+`QueuedJobAdmin`, every email can be logged by `silvershop-suite/notification-log`, and recovered revenue is reported in the
 CMS.
 
 ## Requirements
@@ -20,7 +20,7 @@ PHP 8.3 / 8.4.
 ## Install
 
 ```bash
-composer require silvershop/abandoned-cart
+composer require silvershop-suite/abandoned-cart
 ```
 
 Then `vendor/bin/sake db:build --flush` (or `dev/build?flush=1`), and arm the recurring scan once:
@@ -70,7 +70,7 @@ SilverShop\AbandonedCart\Service\CartRecoveryService:
   pre-contractual step) or who are members, always with one-click unsubscribe in every email and our own suppression
   list (an unsubscribed row is never mailed again). A defensible legitimate-interest / soft-opt-in posture.
 - **`require_consent`** — only send when the address has an explicit `NewsletterConsent` opt-in (requires
-  `silvershop/newsletter`). With a strict counsel, flip this on.
+  `silvershop-suite/newsletter`). With a strict counsel, flip this on.
 
 Every email carries a one-click unsubscribe regardless of mode.
 
@@ -78,7 +78,7 @@ Every email carries a one-click unsubscribe regardless of mode.
 
 The `CartData` snapshot and the recipient email are personal data. When a row goes terminal (Recovered / Unsubscribed
 / Stopped / Completed) its **token is nulled immediately** (killing the live resume link), and the row is deleted
-`retention_days` (default 30) after it ends. The recovery email is logged by `silvershop/notification-log` under the
+`retention_days` (default 30) after it ends. The recovery email is logged by `silvershop-suite/notification-log` under the
 **Marketing** category (key `cart.recovery`), so it participates in that module's split-retention and data-erasure
 flows.
 
@@ -115,10 +115,10 @@ vendor/bin/sake tasks:SilverShop-AbandonedCart-Task-SendAbandonedCartRecoveryTas
 
 All guarded — the module works standalone and lights these up when present:
 
-- `silvershop/newsletter` — the `require_consent` gate (and the v2 ESP-export seam).
-- `silvershop/notification-log` — logs + categorises each recovery email and provides the erasure seam.
-- `silvershop/store-profile` — shop identity for the sender name/address.
-- `silvershop/order-confirmation` / `silvershop/order-admin` — shared token idiom + admin surfaces.
+- `silvershop-suite/newsletter` — the `require_consent` gate (and the v2 ESP-export seam).
+- `silvershop-suite/notification-log` — logs + categorises each recovery email and provides the erasure seam.
+- `silvershop-suite/store-profile` — shop identity for the sender name/address.
+- `silvershop-suite/order-confirmation` / `silvershop-suite/order-admin` — shared token idiom + admin surfaces.
 - `silvershop/discounts` — v2 incentive coupons.
 
 ## Roadmap (v2)

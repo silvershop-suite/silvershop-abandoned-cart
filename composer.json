@@ -1,5 +1,5 @@
 {
-    "name": "silvershop/abandoned-cart",
+    "name": "silvershop-suite/abandoned-cart",
     "description": "Abandoned-cart recovery for SilverShop: detect carts left behind, send a timed recovery-email sequence, and restore the cart from a tokenised link — with a self-contained snapshot so recovery survives cart cleanup.",
     "type": "silverstripe-vendormodule",
     "keywords": [
@@ -35,11 +35,11 @@
         "squizlabs/php_codesniffer": "^3.0"
     },
     "suggest": {
-        "silvershop/newsletter": "Gates recovery mail on the canonical NewsletterConsent opt-in (require_consent mode) and is the seam for the v2 ESP-export delivery.",
-        "silvershop/notification-log": "Captures each recovery email as an auditable, GDPR-categorised SentNotification row and provides the data-erasure seam.",
-        "silvershop/store-profile": "Shared shop identity used as the sender name/address for the recovery emails.",
-        "silvershop/order-confirmation": "Shares the tokenised-order-access idiom; its GuestToken gives placed-order links from the recovery landing.",
-        "silvershop/order-admin": "Richer CMS order surfaces alongside the recovery admin.",
+        "silvershop-suite/newsletter": "Gates recovery mail on the canonical NewsletterConsent opt-in (require_consent mode) and is the seam for the v2 ESP-export delivery.",
+        "silvershop-suite/notification-log": "Captures each recovery email as an auditable, GDPR-categorised SentNotification row and provides the data-erasure seam.",
+        "silvershop-suite/store-profile": "Shared shop identity used as the sender name/address for the recovery emails.",
+        "silvershop-suite/order-confirmation": "Shares the tokenised-order-access idiom; its GuestToken gives placed-order links from the recovery landing.",
+        "silvershop-suite/order-admin": "Richer CMS order surfaces alongside the recovery admin.",
         "silvershop/discounts": "v2 incentive coupons injected into the later recovery emails."
     },
     "scripts": {
