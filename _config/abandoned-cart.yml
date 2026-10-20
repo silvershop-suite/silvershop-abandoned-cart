@@ -44,7 +44,7 @@ SilverShop\AbandonedCart\Model\CartRecovery:
 ---
 Name: silvershop-abandoned-cart-notification-log
 Only:
-  moduleexists: 'silvershop/notification-log'
+  moduleexists: 'silvershop-suite/notification-log'
 After:
   - '#silvershop'
 ---
